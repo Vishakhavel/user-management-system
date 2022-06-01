@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './UserForm.module.css'
 import Card from '../UI/Card'
 import Error from '../UI/Error'
+import Button from '../UI/Button'
 const UserForm = (props) => {
   const [enteredAge, setEnteredAge] = useState('')
   const [enteredName, setEnteredName] = useState('')
@@ -40,9 +41,19 @@ const UserForm = (props) => {
   const handleInputAge = (event) => {
     setEnteredAge(event.target.value)
   }
+
+  const handleErrorConfirm = (props) => {
+    setError(null)
+  }
   return (
     <div>
-      {error && <Error title={error.title} message={error.message} />}
+      {error && (
+        <Error
+          title={error.title}
+          message={error.message}
+          onConfirm={handleErrorConfirm}
+        />
+      )}
       <Card className={styles.input}>
         <div>
           <form onSubmit={handleFormSubmit}>
@@ -62,7 +73,7 @@ const UserForm = (props) => {
               onChange={handleInputAge}
             />
 
-            <button type='submit'>Add User</button>
+            <Button type='submit'>Add User</Button>
           </form>
         </div>
       </Card>
