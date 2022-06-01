@@ -42,7 +42,7 @@ const UserForm = (props) => {
     setEnteredAge(event.target.value)
   }
 
-  const handleErrorConfirm = (props) => {
+  const handleErrorConfirm = () => {
     setError(null)
   }
   return (
