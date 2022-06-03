@@ -46,7 +46,7 @@ const UserForm = (props) => {
     setError(null)
   }
   return (
-    <div>
+    <React.Fragment>
       {error && (
         <Error
           title={error.title}
@@ -77,7 +77,7 @@ const UserForm = (props) => {
           </form>
         </div>
       </Card>
-    </div>
+    </React.Fragment>
   )
 }
 export default UserForm
